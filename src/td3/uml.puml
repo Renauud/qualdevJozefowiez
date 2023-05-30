@@ -1,0 +1,53 @@
+@startuml tpnote
+
+class StationMétéo {
+  -_temperature: int
+  -_humidité: int
+  +temperature(): int
+  +humidité(): int
+  +temperature(valeur: int[]): void
+  +humidité(valeur: int[]): void
+  +StationMétéo(temperature: int = 0, humidité: int = 15)
+  +toString(): string
+}
+
+interface IListener {
+  +notify(data: int): void
+}
+
+class TemperatureAlertsListener {
+  -_temperature: int[]
+  +TemperatureAlertsListener()
+  +temperature(): int[]
+  +notify(data: int): void
+  +affiche(): void
+}
+
+class HumiditeAlertsListener {
+  -_humidite: int[]
+  +HumiditeAlertsListener()
+  +humidite(): int[]
+  +notify(data: int): void
+}
+
+class AfficheurTexte {
+  +affiche(temperature: int, humidité: int): void
+}
+
+class AfficheurGraphique {
+  -_tabTemperature: int[]
+  -_tabHumidité: int[]
+  +AfficheurGraphique()
+  +temperature(valeur: int[]): void
+  +humidite(valeur: int[]): void
+  +affiche(): void
+}
+
+StationMétéo "1" --> "*" TemperatureAlertsListener
+StationMétéo "1" --> "*" HumiditeAlertsListener
+TemperatureAlertsListener ..|> IListener
+HumiditeAlertsListener ..|> IListener
+
+
+
+@enduml
