@@ -26,6 +26,19 @@ export class StationMétéo {
     this._humidité = humidité;
   }
 
+  public getValuesFromIteration(n: number, tabTemp: number[], humiditeTab: number[]): string {
+    // [n, tabTemp[n - 1], humiditeTab[n - 1]];
+    return (
+      "A l'itération " +
+      n +
+      ", il faisait " +
+      tabTemp[n - 1] +
+      "°C et l'humidité était de " +
+      humiditeTab[n - 1] +
+      "%."
+    );
+  }
+
   public toString(): string {
     return this._temperature + "°C\n" + this._humidité + "%";
   }

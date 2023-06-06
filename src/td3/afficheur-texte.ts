@@ -1,5 +1,15 @@
 export class AfficheurTexte {
-  affiche(temperature: number, humidité: number): void {
-    console.log(temperature + "°C\n" + humidité + "%");
+  affiche(numberIter: number, temperature: number, humidité: number): void {
+    console.log(
+      "[ " +
+        numberIter +
+        " ] " +
+        "Température : " +
+        temperature +
+        "°C / " +
+        "Humidité : " +
+        humidité +
+        "%.\n"
+    );
   }
 }

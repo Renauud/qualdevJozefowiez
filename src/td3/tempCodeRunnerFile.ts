@@ -1,2 +1,1 @@
-  temperatureAlertListener.notify(stationMeteo.temperature);
-  humididteAlertListener.notify(stationMeteo.humidité);
+import { AfficheurGraphique } from "./afficheur-graphique";
